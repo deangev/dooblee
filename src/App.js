@@ -6,6 +6,7 @@ import Navbar from './components/Navbar';
 import User from './components/User';
 import './animation.css'
 
+
 function App() {
   const [users, setUsers] = useState();
   const [filteredUsers, setFilteredUsers] = useState();
@@ -62,7 +63,7 @@ function App() {
         {filteredUsers && filteredUsers.map((user, index) => {
           return (
             (page * 9 > index) && (
-              <User user={user} index={index} page={page} />
+              <User key={index} user={user} page={page} />
             )
           )
         })}
