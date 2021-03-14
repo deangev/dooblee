@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme) => ({
         },
     },
     color: {
-        background: 'linear-gradient(45deg, #087aea 10%, #22a8fc 90%)',
+        background: `linear-gradient(45deg,${theme.palette.info.dark} 10%, ${theme.palette.info.light})`,
         boxShadow: '0px 0px 5px 2px #fff',
     },
     title: {
@@ -57,7 +57,7 @@ const useStyles = makeStyles((theme) => ({
         height: '3.5rem',
         width: '100%',
         position: 'absolute',
-        background: 'linear-gradient(45deg, #087aea 10%, #22a8fc 90%)'
+        background: `linear-gradient(45deg,${theme.palette.info.dark} 10%, ${theme.palette.info.light})`,
     },
     name: {
         paddingLeft: '.3rem'
@@ -69,11 +69,12 @@ const useStyles = makeStyles((theme) => ({
         top: '3rem',
         width: '50%',
         padding: '.6rem 0',
-        color: '#1d9ff9',
-        border: '#1d9ff9 1px solid',
+        color: theme.palette.info.dark,
+        border: `${theme.palette.info.dark} 1px solid`,
         '&:hover': {
-            backgroundColor: fade(theme.palette.common.white, 0.75),
-            border: '#22a8fc 1px solid',
+            backgroundColor: fade(theme.palette.info.dark, 0.75),
+            border: `${theme.palette.common.white} 1px solid`,
+            color: theme.palette.common.white
         },
     }
 }));
