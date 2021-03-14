@@ -36,16 +36,16 @@ function App() {
       setFilteredUsers(users)
     } else {
       setPage(1)
-      const newArr = users && inputText && users.filter(item =>
+      const newArr = users && users.filter(item =>
         item.fullName.toLowerCase().includes(inputText.toLowerCase())
       ).map(item => {
-        let newFullName = item.fullName.replace(
+        let fullNameHighlight = item.fullName.replace(
           new RegExp(inputText, 'gi'),
           match => `<mark style="background: #1d9ff9; color: white">${match}</mark>`
         )
         return {
           ...item,
-          fullName: newFullName
+          fullName: fullNameHighlight
         }
       })
       setFilteredUsers(newArr)
@@ -63,12 +63,12 @@ function App() {
         {filteredUsers && filteredUsers.map((user, index) => {
           return (
             (page * 9 > index) && (
-              <User key={index} user={user} page={page} />
+              <User user={user} />
             )
           )
         })}
       </Grid>
-      {page < (filteredUsers && filteredUsers.length / 9) && <Button variant="outlined" className={classes.button} color="primary" onClick={() => setPage(prevValue => prevValue + 1)}>Load More</Button>}
+      {page < (filteredUsers && filteredUsers.length / 9) && <Button variant="outlined" className={classes.button} onClick={() => setPage(prevValue => prevValue + 1)}>Load More</Button>}
     </div>
   );
 }
